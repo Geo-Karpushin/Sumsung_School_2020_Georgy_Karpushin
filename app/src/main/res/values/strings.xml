@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Application1</string>
+    <string name="Defaul_Otvet">Ответ</string>
+    <string name="N_Text">Калькулятор уравнений</string>
+</resources>
