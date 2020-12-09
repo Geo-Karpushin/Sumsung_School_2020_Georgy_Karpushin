@@ -10,49 +10,60 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView text;
-    Button calk;
-    EditText ed1, ed2, ed3;
+    TextView WarningLogin, WarningPassword, Sucsses;
+    Button vhod;
+    EditText login, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.calk = findViewById(R.id.calk);
-        this.text = findViewById(R.id.otvet);
-        this.ed1 = findViewById(R.id.ch1);
-        this.ed2 = findViewById(R.id.ch2);
-        this.ed3 = findViewById(R.id.ch3);
-        calk.setOnClickListener(this);
+        this.vhod = findViewById(R.id.vhod);
+        this.WarningLogin = findViewById(R.id.WarningLogin);
+        this.WarningPassword = findViewById(R.id.WarningPassword);
+        this.Sucsses = findViewById(R.id.Sucsseful);
+        this.login = findViewById(R.id.Login);
+        this.pass = findViewById(R.id.Password);
+        vhod.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        String t1 = ed1.getText().toString();
-        String t2 = ed2.getText().toString();
-        String t3 = ed3.getText().toString();
-        int a = Integer.parseInt(t1);
-        int b = Integer.parseInt(t2);
-        int c = Integer.parseInt(t3);
-        if(a==0)
+        String l = login.getText().toString();
+        String p = pass.getText().toString();
+        boolean loginTrue = false;
+        boolean passwordTrue = false;
+
+        if(l == "Admin")
         {
-            text.setText("error");
+            WarningLogin.setVisibility(View.INVISIBLE);
+            loginTrue = true;
         }
-        double D = b*b - 4*a*c;
-        if(D<0)
+        else
         {
-            text.setText("error");
+            WarningLogin.setVisibility(View.VISIBLE);
+            Sucsses.setVisibility(View.INVISIBLE);
+            loginTrue = false;
         }
-        double x1 = ((-b+Math.sqrt(D))/(2*a));
-        double x2 = ((-b+Math.sqrt(D))/(2*a));
-        if(D==0)
+        if(p == "Test")
         {
-            text.setText(String.valueOf((x1)));
+            passwordTrue = true;
+            WarningPassword.setVisibility(View.INVISIBLE);
         }
-        else if (D>0)
+        else
         {
-            text.setText(String.format("%f.2 %f.2",x1,x2));
+            passwordTrue = false;
+            WarningPassword.setVisibility(View.VISIBLE);
+            Sucsses.setVisibility(View.INVISIBLE);
         }
-        text.setText(String.valueOf(a));
+
+        if(loginTrue && passwordTrue)
+        {
+            Sucsses.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            Sucsses.setVisibility(View.INVISIBLE);
+        }
     }
 }
