@@ -7,4 +7,7 @@
     <string name="Login_Sucsess">Добро пожаловать!</string>
     <string name="t_Login_Text">Логин введен неверно</string>
     <string name="t_Password_Text">Пароль введен неверно</string>
+    <string name="TVRegPass_Text">Введите новый пароль:</string>
+    <string name="TVRegLogin_Text">Введите новый логин:</string>
+    <string name="registration_complete">Регистрация</string>
 </resources>
